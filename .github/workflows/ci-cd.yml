@@ -1,5 +1,5 @@
-# À compléter au Jour 2.
-# Squelette : build, test, versionnement, déploiement pré-prod.
+# À compléter au Jour 3.
+# Squelette : build, test, évaluation (quality gate MLflow), déploiement pré-prod.
 
 name: CI/CD
 
@@ -18,5 +18,5 @@ jobs:
       - run: pip install -r requirements.txt
       # TODO : build de l'image Docker
       # TODO : exécution des tests unitaires et d'intégration
-      # TODO : job d'évaluation automatisée (quality gate) — Jour 3
-      # TODO : déploiement en environnement de pré-production
+      # TODO : job d'évaluation automatisée (scripts/evaluate_model.py) — quality gate MLflow
+      # TODO : déploiement en environnement de pré-production si le quality gate passe

@@ -1,8 +1,9 @@
 services:
   # --- Pré-configuré : ne pas modifier la partie tracking, seulement l'utiliser ---
+  # Utilisé dès le Jour 1 pour le tracking et le Model Registry MLflow.
   mlflow:
     image: ghcr.io/mlflow/mlflow:v2.14.1
-    container_name: heart-mlflow
+    container_name: diabetes-mlflow
     command: >
       mlflow server
       --backend-store-uri sqlite:////mlflow/mlflow.db
@@ -19,10 +20,10 @@ services:
       timeout: 5s
       retries: 5
 
-  # --- À compléter par vous : Jour 1 (Dockerfile) ---
+  # --- À compléter par vous : Jour 3 (Dockerfile) ---
   # api:
   #   build: .
-  #   container_name: heart-api
+  #   container_name: diabetes-api
   #   ports:
   #     - "8000:8000"
   #   environment:

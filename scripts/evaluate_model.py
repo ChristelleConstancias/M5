@@ -1,9 +1,9 @@
 """À faire (Jour 3) : job d'évaluation automatisée, intégré au CI/CD.
 
-Rejoue `data/reference/heart_reference.csv` (cas nominal) sur le modèle
-en Production, calcule les métriques, et compare à celles enregistrées
-dans MLflow. Doit détecter la dégradation simulée avec
-`data/reference/heart_reference_drifted.csv` et bloquer la promotion
+Rejoue `data/reference/diabetes_reference.csv` (cas nominal) sur le modèle
+candidat, calcule les métriques, et compare à celles du modèle actuellement
+en Production dans MLflow. Doit détecter la dégradation simulée avec
+`data/reference/diabetes_reference_drifted.csv` et bloquer la promotion
 (quality gate) si le rappel chute au-delà du seuil défini.
 """
 

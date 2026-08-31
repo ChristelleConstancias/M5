@@ -1,4 +1,4 @@
-# À compléter au Jour 1.
+# À compléter au Jour 3.
 # Squelette minimal : à ajuster (port, commande de démarrage, copie du modèle).
 
 FROM python:3.12-slim

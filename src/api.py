@@ -1,14 +1,15 @@
-"""API FastAPI exposant le modèle de risque de crise cardiaque.
+"""API FastAPI exposant le modèle de risque de diabète.
 
 À faire (Jour 1) :
     - POST /predict  : reçoit un profil patient, retourne la prédiction.
     - GET  /health    : statut de l'API (pour le healthcheck Docker/CI).
-    - GET  /model/info : version et métriques du modèle chargé.
+    - GET  /model/info : version, stage et métriques du modèle chargé
+      depuis le MLflow Model Registry.
 """
 
 from fastapi import FastAPI
 
-app = FastAPI(title="Heart Risk API")
+app = FastAPI(title="Diabetes Risk API")
 
 
 @app.get("/health")

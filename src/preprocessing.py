@@ -2,13 +2,13 @@
 
 À faire (Jour 1) : reprendre la logique de préparation des données du
 notebook `notebooks/entrainement_modele.ipynb` et l'exposer ici sous une
-forme testable, réutilisée à la fois par l'API et par le script
-d'évaluation (scripts/evaluate_model.py).
+forme testable, réutilisée à la fois par l'API et par les scripts de
+monitoring/évaluation (scripts/monitor_metrics.py, scripts/evaluate_model.py).
 """
 
 FEATURES = [
-    "age", "sex", "cp", "trestbps", "chol", "fbs", "restecg",
-    "thalach", "exang", "oldpeak", "slope", "ca", "thal",
+    "pregnancies", "glucose", "blood_pressure", "skin_thickness",
+    "insulin", "bmi", "diabetes_pedigree", "age",
 ]
 
 
