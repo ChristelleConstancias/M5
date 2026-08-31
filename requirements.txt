@@ -3,11 +3,5 @@ numpy
 scikit-learn
 imbalanced-learn
 joblib
-fastapi
-uvicorn[standard]
-pydantic
-loguru
-streamlit
-pytest
-httpx
 mlflow
+pytest
