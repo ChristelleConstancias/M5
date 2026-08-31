@@ -1,9 +1,8 @@
 # Données — TP Module 5
 
-- `raw/diabetes_train.csv` : dataset d'entraînement (700 profils patients), utilisé par la data scientist dans `notebooks/entrainement_modele.ipynb` pour produire `diabetes_risk_model.pkl`.
-- `raw/training_metrics.json` : meilleurs hyperparamètres (GridSearchCV, optimisation sur le rappel) et métriques du pipeline sur son jeu de test interne (accuracy, recall, f1, auc), à titre de référence pour le tracking MLflow (Jour 1).
-- `reference/diabetes_reference.csv` : jeu de référence labellisé (200 profils, même distribution que l'entraînement), à utiliser pour le monitoring et le job d'évaluation automatisée (cas nominal — les métriques doivent rester stables, le quality gate doit laisser passer).
-- `reference/diabetes_reference_drifted.csv` : même format, mais population décalée (patients plus âgés, glycémie/tension/IMC plus élevés, davantage de cas positifs). À utiliser pour simuler une dérive de données et vérifier que le monitoring la détecte, et que le CI/CD bloque la promotion.
+- `raw/diabetes_train.csv` : dataset d'entraînement (700 profils patients), à utiliser pour réécrire le script d'entraînement à partir du notebook (`notebooks/entrainement_modele.ipynb`).
+- `reference/diabetes_reference.csv` : jeu de référence labellisé (200 profils, même distribution que l'entraînement), à utiliser pour calculer le rappel du modèle dans le test de non-régression (cas nominal — le rappel doit rester au-dessus du seuil donné).
+- `reference/diabetes_reference_drifted.csv` : même format et profils statistiquement proches du jeu de référence, mais où le lien entre les caractéristiques cliniques et le diabète a évolué (dérive de concept). Le rappel du modèle chute nettement dessus. À utiliser pour vérifier que votre test détecterait bien une dégradation si elle survenait.
 
 ## Dictionnaire des colonnes
 
