@@ -1,14 +1,14 @@
 {
   "best_params": {
-    "model__max_depth": 4,
+    "model__max_depth": null,
     "model__min_samples_leaf": 5,
     "model__n_estimators": 200
   },
-  "cv_best_recall": 0.5765,
-  "accuracy": 0.6929,
-  "recall": 0.619,
-  "f1": 0.5474,
-  "auc": 0.7121,
+  "cv_best_recall": 0.6647,
+  "accuracy": 0.6286,
+  "recall": 0.7143,
+  "f1": 0.5357,
+  "auc": 0.7104,
   "n_train": 560,
   "n_test": 140
 }
