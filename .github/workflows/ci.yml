@@ -67,11 +67,11 @@ jobs:
 
       - name: Build image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/diabetes-prediction:latest .
+          docker build -t ghcr.io/christelleconstancias/diabetes-prediction:latest .
 
       - name: Push image
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/diabetes-prediction:latest
+          docker push ghcr.io/christelleconstancias/diabetes-prediction:latest
 
       - name: Smoke test
         run: |
