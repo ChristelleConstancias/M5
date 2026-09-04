@@ -44,7 +44,7 @@ jobs:
 
 
 
-build-and-push:
+  build-and-push:
     needs: test
 
     runs-on: ubuntu-latest
@@ -81,3 +81,5 @@ build-and-push:
           sleep 15
 
           curl http://localhost:8000/health
+
+          
