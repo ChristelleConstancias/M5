@@ -38,7 +38,7 @@ def test_model_recall():
     model, features = load_or_train_model()
 
     # drift data
-    df = pd.read_csv("./data/reference/diabetes_reference.csv")
+    df = pd.read_csv("./data/reference/diabetes_reference_drifted.csv")
 
     X = df.drop(columns=["outcome"])
     y = df["outcome"]
