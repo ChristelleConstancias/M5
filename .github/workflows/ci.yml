@@ -65,18 +65,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Convert owner to lowercase
+        run: |
+          echo "OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
+
       - name: Build image
         run: |
-          docker build -t ghcr.io/christelleconstancias/diabetes-prediction:latest .
+          docker build -t ghcr.io/${{OWNER_LC}}/diabetes-prediction:latest .
 
       - name: Push image
         run: |
-          docker push ghcr.io/christelleconstancias/diabetes-prediction:latest
+          docker push ghcr.io/${{OWNER_LC}}/diabetes-prediction:latest
 
       - name: Smoke test
         run: |
           docker run -d -p 8000:8000 --name api \
-            ghcr.io/christelleconstancias/diabetes-prediction:latest
+            ghcr.io/${{OWNER_LC}}/diabetes-prediction:latest
 
           sleep 15
 
