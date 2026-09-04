@@ -16,6 +16,8 @@ import joblib
 import mlflow
 import mlflow.sklearn
 
+os.environ["MLFLOW_ALLOW_FILE_STORE"] = "true"
+
 FEATURES = [
     "pregnancies", 
     "glucose", 
@@ -41,6 +43,7 @@ def split_train(df):
 def train_the_model():
 
     # configuraton du ML Flow
+    mlflow.set_tracking_uri("file:./mlruns")
     mlflow.set_experiment("DiabetesPrediction")
 
     # Charger les données
