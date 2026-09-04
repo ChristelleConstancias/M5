@@ -76,7 +76,7 @@ jobs:
       - name: Smoke test
         run: |
           docker run -d -p 8000:8000 --name api \
-            ghcr.io/${{ github.repository_owner }}/diabetes-prediction:latest
+            ghcr.io/christelleconstancias/diabetes-prediction:latest
 
           sleep 15
 
