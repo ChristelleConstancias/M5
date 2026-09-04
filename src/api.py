@@ -2,9 +2,11 @@ from pathlib import Path
 
 import joblib
 import pandas as pd
+import shap
 
 from fastapi import FastAPI
 from pydantic import BaseModel
+from sqlalchemy import values
 
 
 # ==========================
@@ -17,6 +19,7 @@ artifact = joblib.load(MODEL_PATH)
 
 model = artifact["model"]
 features = artifact["features"]
+explainer = shap.TreeExplainer(model.named_steps["model"])
 
 
 # ==========================
@@ -76,4 +79,50 @@ def predict(patient: Patient):
     return {
         "prediction": prediction,
         "probability": round(probability, 4)
+    }
+
+
+# ==========================
+# Explanation
+# ==========================
+@app.post("/explain")
+def explain(patient: Patient):
+
+    df = pd.DataFrame([patient.model_dump()])
+
+    prediction = int(model.predict(df)[0])
+
+    proba = float(model.predict_proba(df)[0][1])
+
+    shap_values = explainer.shap_values(df)
+
+    # Pour un problème binaire
+    values = shap_values[0, :, 1]
+
+    explanations = []
+
+    for feature, value in zip(df.columns, values):
+        print(value)
+        explanations.append(
+            {
+                "feature": feature,
+                "impact": round(float(value), 4),
+                "direction": (
+                    "augmente le risque"
+                    if value > 0
+                    else "diminue le risque"
+                )
+            }
+        )
+
+    explanations = sorted(
+        explanations,
+        key=lambda x: abs(x["impact"]),
+        reverse=True
+    )
+
+    return {
+        "prediction": prediction,
+        "risk_probability": round(proba, 3),
+        "top_factors": explanations[:5]
     }
