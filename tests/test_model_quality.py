@@ -8,6 +8,10 @@ import pandas as pd
 from sklearn.metrics import recall_score
 from src.train_model import train_the_model
 
+import os
+
+print("Répertoire courant :", os.getcwd())
+
 
 MODEL_PATH = Path("diabetes_risk_model.pkl")
 
@@ -34,7 +38,7 @@ def test_model_recall():
     model, features = load_or_train_model()
 
     # drift data
-    df = pd.read_csv("data/reference/diabetes_reference_drift.csv")
+    df = pd.read_csv("./data/reference/diabetes_reference.csv")
 
     X = df.drop(columns=["outcome"])
     y = df["outcome"]
